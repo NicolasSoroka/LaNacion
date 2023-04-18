@@ -18,3 +18,12 @@ Instalar dependencias y correr el proyecto
 ## Documentación
 
 [Next.js](https://nextjs.org/docs/getting-started)
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  npm run test
+```
+

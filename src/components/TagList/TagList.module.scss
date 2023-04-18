@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+  display: flex;
+  gap: 0 1rem;
+  list-style-type: none;
+  width: 100%;
+  flex-wrap: wrap;
+
+  & > li {
+  width: fit-content;
+
+    & > a {
+      text-decoration: none;
+      color: #006998;
+      font-size: 1.5rem;
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(1.4);
+      }
+    }
+  }
+}

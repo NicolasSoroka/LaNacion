@@ -1,0 +1,42 @@
+@import "@/styles/media-queries";
+
+.container {
+  position: relative;
+  display: flex;
+
+  width: 100%;
+  padding: 6rem 2rem;
+  margin: 0;
+  gap: 0 40px;
+
+  &__sidebarMain {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    width: 100%;
+    gap: 40px;
+
+    &__title {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      width: fit-content;
+      border-bottom: 3px solid #000000;
+    }
+  }
+
+  &__aside {
+    position: relative;
+    min-width: 300px;
+    min-height: 1200px;
+    background-color: #a0dbe9;
+
+    @include small-screen {
+      display: none;
+    }
+
+    @include medium-screen {
+      display: none;
+    }
+  }
+}
