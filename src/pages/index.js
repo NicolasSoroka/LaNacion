@@ -1,7 +1,16 @@
-import { AcumuladoContainer } from "@/containers";
+import { useContext, useEffect } from "react";
+import AppContext from "@/context/AppContext";
 import Head from "next/head";
+import { AcumuladoContainer } from "@/containers";
 
-export default function Home() {
+export default function Home({articles, tags}) {
+  const { setArticles, setTags } = useContext(AppContext);
+  
+  useEffect(() => {
+    setArticles(articles);
+    setTags(tags);
+  }, [tags, articles, setTags, setArticles])
+
   return (
     <>
       <Head>
@@ -13,4 +22,35 @@ export default function Home() {
       <AcumuladoContainer />
     </>
   );
+}
+
+export async function getStaticProps() {
+  const response = await fetch("http://localhost:3000/api/getData");
+  const { articles } = await response.json();
+
+  const filteredTags = {};
+  if (articles) {
+    for (const article of articles) {
+      for (const tag of article.taxonomy.tags) {
+        const tagSlug = tag.slug;
+        if (tagSlug in filteredTags) {
+          filteredTags[tagSlug].count++;
+        } else {
+          filteredTags[tagSlug] = {
+            slug: tagSlug,
+            text: tag.text,
+            count: 1,
+          };
+        }
+      }
+    }
+  }
+  const tags = Object.values(filteredTags).sort((a, b) => b.count - a.count);
+
+  return {
+    props: {
+      articles,
+      tags,
+    },
+  };
 }

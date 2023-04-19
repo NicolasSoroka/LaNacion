@@ -1,9 +1,12 @@
-import useGetArticlesData from '@/hooks/useGetArticlesData';
 import styles from './TagList.module.scss'
+import { useContext } from 'react';
+import AppContext from '@/context/AppContext';
 
 const TagList = () => {
-  const { filteredTags } = useGetArticlesData();
-  const firstTenTags = filteredTags?.slice(0, 10);
+  // const { filteredTags } = useGetArticlesData();
+
+  const { tags } = useContext(AppContext);
+  const firstTenTags = tags?.slice(0, 10);
 
   return (
     <ul className={styles.container}>
