@@ -25,7 +25,7 @@ export default function Home({articles, tags}) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch("http://localhost:3000/api/getData");
+  const response = await fetch("/api/getData");
   const { articles } = await response.json();
 
   const filteredTags = {};
@@ -52,5 +52,6 @@ export async function getStaticProps() {
       articles,
       tags,
     },
+
   };
 }
