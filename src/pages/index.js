@@ -26,11 +26,7 @@ export default function Home({ articles, tags }) {
 
 export async function getStaticProps() {
   // const response = await fetch("/api/getData");
-  // const { articles } = await response.json();
-
-  const response = await fetch(
-    "https://jrt2bb3b2nlkw5ozvfcld62wbe0pnifh.lambda-url.us-east-1.on.aws/"
-  );
+  const response = await fetch("https://jrt2bb3b2nlkw5ozvfcld62wbe0pnifh.lambda-url.us-east-1.on.aws/");
   const { articles } = await response.json();
 
   const filteredTags = {};

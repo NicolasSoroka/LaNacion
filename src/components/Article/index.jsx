@@ -13,7 +13,7 @@ const Article = ({ article }) => {
     <article className={styles.container}>
       <section className={styles.container__section}>
         <a href="" className={styles.container__section__image}>
-            <Image src={imageUrl ? imageUrl : '/default.png'} alt="article image" fill />
+            <Image src={imageUrl ? imageUrl : '/default.png'} alt="article image" width={300} height={200} blur blurDataURL='/lanaciondefault.png' />
         </a>
       </section>
       <div className={styles.container__description}>
