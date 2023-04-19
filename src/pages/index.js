@@ -32,7 +32,6 @@ export async function getStaticProps() {
     "https://jrt2bb3b2nlkw5ozvfcld62wbe0pnifh.lambda-url.us-east-1.on.aws/"
   );
   const { articles } = await response.json();
-  // res.status(200).json(data);
 
   const filteredTags = {};
   if (articles) {
