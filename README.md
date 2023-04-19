@@ -8,7 +8,7 @@ Clonar repo
 
 ```bash
   git clone https://github.com/NicolasSoroka/LaNacion.git
-  cd la-nacion
+  cd laNacion
 ```
 Instalar dependencias y correr el proyecto
   ```bash
